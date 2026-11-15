@@ -40,9 +40,9 @@
   --bezel:#0F0A06;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--surface-page);color:var(--ink);
-  font:17px/1.65 'DM Sans',system-ui,sans-serif}
+  font:17px/1.65 'DM Sans',system-ui,sans-serif;overflow-x:clip}
 .container{max-width:1060px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.08;
   letter-spacing:-0.01em;margin:0}
@@ -52,7 +52,8 @@ a:hover{text-decoration:underline}
 section{scroll-margin-top:84px}
 
 /* Nav */
-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--surface-page) 82%, transparent);
+nav{position:sticky;top:0;z-index:10;background:var(--surface-page);
+  background:color-mix(in srgb, var(--surface-page) 82%, transparent);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line)}
 .nav-inner{max-width:1060px;margin:0 auto;padding:0 20px;height:64px;
@@ -76,7 +77,7 @@ nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--surface
 .hero h1{font-size:clamp(42px,6.2vw,68px)}
 .hero .sub{font-size:20px;line-height:1.55;max-width:30em;margin:22px 0 28px}
 .micro{font-size:14px;color:var(--ink-faint);margin:14px 0 0}
-.phone-stage{display:flex;justify-content:center;position:relative;padding:12px 0}
+.phone-stage{display:flex;justify-content:center;position:relative;padding:12px 0;max-width:100%}
 .phone-stage::before{content:"";position:absolute;inset:8% 12%;border-radius:50%;
   background:radial-gradient(closest-side, var(--surface-tint), transparent 72%);z-index:0}
 .device{position:relative;z-index:1;width:min(300px,76vw);border-radius:52px;
