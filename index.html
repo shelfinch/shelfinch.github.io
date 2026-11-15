@@ -14,163 +14,330 @@
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --surface-page:#FBF5EA; --surface-card:#FFFBF4; --surface-tint:#F4E9D8;
   --ink:#3A2A1E; --ink-muted:#6B5A4C; --ink-faint:#9A8A7A;
-  --accent:#B3471F; --on-accent:#FFFBF4; --terracotta:#D9653B;
-  --wood:#C9A27E; --line:#EADCC6; --chip-bg:#FDEBDD;
+  --accent:#B3471F; --accent-strong:#9C3A1C; --on-accent:#FFFBF4;
+  --terracotta:#D9653B; --wood:#C9A27E; --line:#EADCC6; --chip-bg:#FDEBDD;
+  --bezel:#241B13;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#342818;
+    --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#2A2014;
     --ink:#F2E7D8; --ink-muted:#C9B8A5; --ink-faint:#8F7F6E;
-    --accent:#E9915F; --on-accent:#201812; --terracotta:#D9653B;
-    --wood:#8A6B4E; --line:#3E3225; --chip-bg:#3E2A1C;
+    --accent:#E9915F; --accent-strong:#F0A878; --on-accent:#201812;
+    --terracotta:#D9653B; --wood:#8A6B4E; --line:#3E3225; --chip-bg:#3E2A1C;
+    --bezel:#0F0A06;
   }
 }
 :root[data-theme="dark"]{
-  --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#342818;
+  --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#2A2014;
   --ink:#F2E7D8; --ink-muted:#C9B8A5; --ink-faint:#8F7F6E;
-  --accent:#E9915F; --on-accent:#201812; --terracotta:#D9653B;
-  --wood:#8A6B4E; --line:#3E3225; --chip-bg:#3E2A1C;
+  --accent:#E9915F; --accent-strong:#F0A878; --on-accent:#201812;
+  --terracotta:#D9653B; --wood:#8A6B4E; --line:#3E3225; --chip-bg:#3E2A1C;
+  --bezel:#0F0A06;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--surface-page);color:var(--ink);
-  font:16px/1.6 'DM Sans',system-ui,sans-serif}
-.wrap{max-width:720px;margin:0 auto;padding:40px 16px 64px}
-
-/* Hero — the product-page lockup */
-.hero{display:flex;gap:18px;align-items:flex-start}
-.hero img{width:108px;height:108px;border-radius:24px;flex-shrink:0;
-  box-shadow:0 10px 26px rgba(58,42,30,.18)}
-.hero .lockup{min-width:0}
-.hero h1{margin:2px 0 2px;font:700 24px/1.2 'DM Sans',system-ui,sans-serif}
-.tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:17px;
-  color:var(--ink-muted);margin:0 0 12px}
-.pill{display:inline-block;background:var(--accent);color:var(--on-accent);
-  font-weight:700;font-size:15px;padding:9px 22px;border-radius:999px}
-
-/* The AGE / CATEGORY / DEVELOPER strip */
-.strip{display:flex;justify-content:space-between;margin:26px 0 0;
-  padding:12px 0 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip div{display:flex;flex-direction:column;gap:2px}
-.strip div:nth-child(2){align-items:center}
-.strip div:last-child{align-items:flex-end}
-.strip .k{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink-faint)}
-.strip .v{font-size:15px;font-weight:700;color:var(--ink-muted)}
-
-/* Screenshot rail, store-style */
-.rail{display:flex;gap:12px;overflow-x:auto;padding:22px 16px;margin:0 -16px;
-  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.rail::-webkit-scrollbar{display:none}
-.rail img{width:246px;height:auto;border-radius:18px;flex-shrink:0;
-  scroll-snap-align:start;border:1px solid var(--line);
-  box-shadow:0 12px 30px rgba(58,42,30,.14)}
-
-h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:22px;
-  line-height:1.2;margin:34px 0 10px}
-p{margin:0 0 14px;color:var(--ink-muted)}
-.lede{color:var(--ink);font-size:17px}
-
-ul.does{list-style:none;padding:0;margin:0 0 6px}
-ul.does li{padding:7px 0 7px 26px;position:relative;color:var(--ink-muted)}
-ul.does li::before{content:"";position:absolute;left:4px;top:15px;width:9px;height:9px;
-  border-radius:3px;background:var(--terracotta)}
-
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0}
-.chip{font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;
-  background:var(--surface-tint);color:var(--ink-muted)}
-.chip.hot{background:var(--chip-bg);color:var(--accent)}
-
-.card{background:var(--surface-card);border:1px solid var(--line);
-  border-radius:18px;padding:18px 20px;margin:0 0 14px}
-.card b{color:var(--ink)}
-.card p{margin:0}
-a{color:var(--accent);font-weight:700;text-decoration:none}
+  font:17px/1.65 'DM Sans',system-ui,sans-serif}
+.container{max-width:1060px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.08;
+  letter-spacing:-0.01em;margin:0}
+p{margin:0 0 16px;color:var(--ink-muted)}
+a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
-  font-size:13px;color:var(--ink-faint)}
+section{scroll-margin-top:84px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--surface-page) 82%, transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1060px;margin:0 auto;padding:0 20px;height:64px;
+  display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:9px;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand span{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:21px}
+.nav-links{display:flex;gap:24px;margin-left:auto}
+.nav-links a{color:var(--ink-muted);font-weight:500;font-size:15px}
+.nav-links a:hover{color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent);color:var(--on-accent);font-weight:700;font-size:16px;
+  padding:13px 26px;border-radius:999px;white-space:nowrap}
+.btn:hover{background:var(--accent-strong);text-decoration:none}
+.btn.small{font-size:14px;padding:9px 18px}
+@media (max-width:760px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding:84px 0 40px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(42px,6.2vw,68px)}
+.hero .sub{font-size:20px;line-height:1.55;max-width:30em;margin:22px 0 28px}
+.micro{font-size:14px;color:var(--ink-faint);margin:14px 0 0}
+.phone-stage{display:flex;justify-content:center;position:relative;padding:12px 0}
+.phone-stage::before{content:"";position:absolute;inset:8% 12%;border-radius:50%;
+  background:radial-gradient(closest-side, var(--surface-tint), transparent 72%);z-index:0}
+.device{position:relative;z-index:1;width:min(300px,76vw);border-radius:52px;
+  background:var(--bezel);padding:11px;
+  box-shadow:0 48px 90px -28px rgba(46,30,16,.45), 0 14px 32px rgba(46,30,16,.16)}
+.device img{display:block;width:100%;height:auto;border-radius:42px}
+.device.small{width:min(270px,70vw);border-radius:48px}
+.device.small img{border-radius:38px}
+@media (max-width:860px){
+  .hero{padding:56px 0 24px}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+}
+
+/* Feature rows */
+.features{padding:48px 0 20px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  padding:64px 0}
+.feature .copy .kicker{font-size:13px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--terracotta);margin:0 0 12px}
+.feature h2{font-size:clamp(30px,3.6vw,40px);margin-bottom:16px}
+.feature p{max-width:28em}
+.feature:nth-child(even) .copy{order:2}
+.feature:nth-child(even) .phone-stage{order:1}
+@media (max-width:860px){
+  .feature{grid-template-columns:1fr;gap:32px;padding:44px 0}
+  .feature:nth-child(even) .copy{order:1}
+  .feature:nth-child(even) .phone-stage{order:2}
+}
+
+/* Privacy manifesto */
+.manifesto{background:var(--surface-tint);padding:96px 0;margin:48px 0 0;text-align:center}
+.manifesto h2{font-size:clamp(34px,4.6vw,52px);margin:18px 0 18px}
+.manifesto .lead{font-size:19px;max-width:38em;margin:0 auto 40px}
+.promises{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.promise{flex:1 1 240px;max-width:300px;background:var(--surface-card);
+  border:1px solid var(--line);border-radius:18px;padding:22px;text-align:left}
+.promise b{display:block;color:var(--ink);font-size:16px;margin:0 0 4px}
+.promise span{font-size:15px;color:var(--ink-muted);line-height:1.5}
+
+/* Deal */
+.deal{padding:96px 0;text-align:center}
+.deal h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
+.deal p{max-width:34em;margin:0 auto 10px}
+.price{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:56px;margin:18px 0 2px}
+.price small{font-size:18px;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--ink-muted)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:22px 0 0}
+.chip{font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;
+  background:var(--surface-card);border:1px solid var(--line);color:var(--ink-muted)}
+.chip.hot{background:var(--chip-bg);border-color:transparent;color:var(--accent)}
+
+/* FAQ + support */
+.faq{padding:0 0 72px}
+.faq h2{font-size:clamp(28px,3.4vw,36px);margin-bottom:22px}
+details{background:var(--surface-card);border:1px solid var(--line);
+  border-radius:16px;padding:4px 20px;margin:0 0 10px}
+summary{cursor:pointer;font-weight:700;color:var(--ink);padding:14px 0;list-style:none;
+  display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--terracotta);font-weight:400}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px}
+
+/* Footer CTA + footer */
+.cta{background:var(--surface-tint);text-align:center;padding:88px 20px}
+.cta h2{font-size:clamp(34px,4.6vw,50px);margin-bottom:14px}
+.cta p{margin:0 auto 28px;max-width:30em}
+footer{border-top:1px solid var(--line);padding:28px 0 40px}
+.foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)}
+.foot a{color:var(--ink-muted);font-weight:500}
+.foot .spacer{flex-grow:1}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="hero">
-    <img src="assets/icon.png" alt="Shelfinch app icon — a finch on a stocked shelf" width="108" height="108">
-    <div class="lockup">
-      <h1>Shelfinch: Pantry &amp; Supplies</h1>
-      <p class="tagline">Stocked up, settled down.</p>
-      <span class="pill">Coming to iPhone</span>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Shelfinch home">
+      <svg aria-hidden="true" width="34" height="22" viewBox="8 28 88 54">
+        <rect x="14" y="76" width="72" height="4.5" rx="2.25" fill="var(--wood)"></rect>
+        <path d="M34 54 L15 41 L24 50 L18 60 Z" fill="#B1431C"></path>
+        <ellipse cx="51" cy="56" rx="19.5" ry="12.5" fill="#D9653B" transform="rotate(-14 51 56)"></ellipse>
+        <polygon points="55,46 73,33 75,49" fill="#D9653B"></polygon>
+        <line x1="46" y1="67" x2="46" y2="76" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="54" y1="68" x2="54" y2="76" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></line>
+        <circle cx="71" cy="39" r="9" fill="#D9653B"></circle>
+        <ellipse cx="49" cy="54" rx="10" ry="4.8" fill="#C2522D" transform="rotate(-20 49 54)"></ellipse>
+        <polygon points="79.5,36.5 88,40 79.5,43" fill="#F2C14E"></polygon>
+        <circle cx="73.5" cy="37.5" r="1.5" fill="var(--surface-page)"></circle>
+      </svg>
+      <span>shelfinch</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">What it does</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#deal">The deal</a>
+      <a href="#support">Support</a>
     </div>
-  </header>
-
-  <div class="strip" aria-label="App facts">
-    <div><span class="k">AGE</span><span class="v">4+</span></div>
-    <div><span class="k">CATEGORY</span><span class="v">Food &amp; Drink</span></div>
-    <div><span class="k">DEVELOPER</span><span class="v">Shelfinch LLC</span></div>
+    <span class="btn small" style="margin-left:auto">Coming to iPhone</span>
   </div>
+</nav>
 
-  <div class="rail" aria-label="Screenshots">
-    <img src="assets/shot-1.jpg" alt="Home shelf — full shelves, clear head" loading="eager">
-    <img src="assets/shot-2.jpg" alt="Scan it — the rest fills in" loading="lazy">
-    <img src="assets/shot-3.jpg" alt="When it runs low, it's already on the list" loading="lazy">
-    <img src="assets/shot-4.jpg" alt="Everyone shops from the same list" loading="lazy">
-    <img src="assets/shot-5.jpg" alt="It even knows how long things keep" loading="lazy">
-    <img src="assets/shot-6.jpg" alt="One chirp at 9, then quiet" loading="lazy">
-    <img src="assets/shot-7.jpg" alt="Nothing stored but supplies" loading="lazy">
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <h1>Stocked up,<br>settled down.</h1>
+      <p class="sub">Shelfinch keeps track of what's in the house — the pantry,
+      the paper goods, the batteries in the junk drawer — so you're not standing
+      in the store wondering if you already have tomato paste.</p>
+      <span class="btn">Coming to iPhone</span>
+      <p class="micro">Free for your first 50 items · no account, ever</p>
+    </div>
+    <div class="phone-stage">
+      <div class="device"><img src="assets/app-home.jpg"
+        alt="The Shelfinch home shelf: every category at a glance, one item running low"
+        width="640" height="1391"></div>
+    </div>
   </div>
+</header>
 
-  <p class="lede">Shelfinch keeps track of what's in the house — the pantry, the
-  paper goods, the batteries in the junk drawer — so you're not standing in the
-  store wondering if you already have tomato paste.</p>
-  <p>Scan a barcode and the name and size fill in. Mark things off as you use them
-  up, and whatever runs low goes on the pick-up list by itself. Share the list with
-  one household code — whoever's at the store checks things off, and the shelves
-  update when the bags get put away.</p>
+<div class="features container" id="features">
 
-  <h2>What it does</h2>
-  <ul class="does">
-    <li>Scan barcodes — names and sizes fill in</li>
-    <li>A pick-up list that builds itself</li>
-    <li>One chirp at 9 the next morning when something new runs low</li>
-    <li>One code shares the list with the whole household</li>
-    <li>Typical U.S. prices for staples, if you want them — off until you turn them on</li>
-    <li>Photos, storage notes, and categories that sort themselves</li>
-  </ul>
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Scan</p>
+      <h2>Scan it — the rest fills in</h2>
+      <p>Point the camera at a barcode and the name, size, and category file
+      themselves in. There's a light for dim pantry corners, and a typed
+      fallback for the labels that crinkle.</p>
+    </div>
+    <div class="phone-stage">
+      <div class="device small"><img src="assets/app-scan.jpg" loading="lazy"
+        alt="Add item after a scan — Skippy Creamy Peanut Butter found, size and price filled" width="640" height="1391"></div>
+    </div>
+  </section>
 
-  <h2>Nothing stored but supplies</h2>
-  <p>Here's what makes Shelfinch different: it stores nothing but your supplies.
-  No account, no email, no sign-up. Your shelves live on your phone and in your
-  own iCloud, and sharing runs on a code — never emails or phone numbers. No ads.
-  No tracking. Details in the <a href="privacy.html">privacy policy</a>.</p>
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">The list</p>
+      <h2>When it runs low, it's already on the list</h2>
+      <p>Mark things off as you use them up. Whatever dips past your reorder
+      point lands on the pick-up list by itself — what's out comes first, and
+      one tap puts it all away when the bags come home.</p>
+    </div>
+    <div class="phone-stage">
+      <div class="device small"><img src="assets/app-list.jpg" loading="lazy"
+        alt="The pick-up list with out items first and one checked off" width="640" height="1391"></div>
+    </div>
+  </section>
 
-  <h2>The deal</h2>
-  <p>Your first 50 items are free. One purchase takes the cap off for the whole
-  household — Family Sharing included, no subscription, ever.</p>
-  <div class="chips">
-    <span class="chip hot">Data Not Linked to You</span>
-    <span class="chip">Food &amp; Drink</span>
-    <span class="chip">$2.99 unlock</span>
-  </div>
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Household</p>
+      <h2>Everyone shops from the same list</h2>
+      <p>One code joins the household — scanned from a QR or typed in, never an
+      email invite. Whoever's at the store checks things off, and the shelves
+      update for everyone when things get put away.</p>
+    </div>
+    <div class="phone-stage">
+      <div class="device small"><img src="assets/app-household.jpg" loading="lazy"
+        alt="The household sheet with its QR code and join code" width="640" height="1391"></div>
+    </div>
+  </section>
 
-  <h2>Support</h2>
-  <div class="card">
-    <p><b>Questions, trouble, ideas?</b> Write to
-    <a href="mailto:support@shelfinch.app">support@shelfinch.app</a> and a human
-    (the one who makes Shelfinch) will get back to you.</p>
-  </div>
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Reminders</p>
+      <h2>One chirp at 9, then quiet</h2>
+      <p>When something new runs low, Shelfinch chirps once the next morning.
+      Nothing again until there's actually news — never a stream, never a nag.</p>
+    </div>
+    <div class="phone-stage">
+      <div class="device small"><img src="assets/app-reminders.jpg" loading="lazy"
+        alt="Settings showing the one-reminder promise and typical prices toggle" width="640" height="1391"></div>
+    </div>
+  </section>
 
-  <h2>Common questions</h2>
-  <div class="card"><p><b>Does scanning a barcode send anything?</b> Only the barcode
-  number goes to the Open Food Facts public database to suggest a name — never
-  your list, never anything about you.</p></div>
-  <div class="card"><p><b>Can I get my data out?</b> Yes — Shelfinch imports and
-  exports plain CSV. Your inventory is yours.</p></div>
-
-  <footer>Shelfinch · <a href="privacy.html">Privacy policy</a> · Storage
-  guidance from the USDA FoodKeeper dataset (public domain)</footer>
 </div>
+
+<section class="manifesto" id="privacy">
+  <div class="container">
+    <svg aria-hidden="true" width="72" height="46" viewBox="8 28 88 54">
+      <rect x="14" y="76" width="72" height="4.5" rx="2.25" fill="var(--wood)"></rect>
+      <path d="M34 54 L15 41 L24 50 L18 60 Z" fill="#B1431C"></path>
+      <ellipse cx="51" cy="56" rx="19.5" ry="12.5" fill="#D9653B" transform="rotate(-14 51 56)"></ellipse>
+      <polygon points="55,46 73,33 75,49" fill="#D9653B"></polygon>
+      <line x1="46" y1="67" x2="46" y2="76" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></line>
+      <line x1="54" y1="68" x2="54" y2="76" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></line>
+      <circle cx="71" cy="39" r="9" fill="#D9653B"></circle>
+      <ellipse cx="49" cy="54" rx="10" ry="4.8" fill="#C2522D" transform="rotate(-20 49 54)"></ellipse>
+      <polygon points="79.5,36.5 88,40 79.5,43" fill="#F2C14E"></polygon>
+      <circle cx="73.5" cy="37.5" r="1.5" fill="var(--surface-tint)"></circle>
+    </svg>
+    <h2>Nothing stored but supplies</h2>
+    <p class="lead">Here's what makes Shelfinch different: it stores nothing but
+    your supplies. No account, no email, no sign-up. Your shelves live on your
+    phone and in your own iCloud, and sharing runs on a code — never emails or
+    phone numbers. No ads. No tracking.</p>
+    <div class="promises">
+      <div class="promise"><b>No account, ever</b>
+        <span>Your shelves live on your devices and your own iCloud.</span></div>
+      <div class="promise"><b>A barcode is all that's sent</b>
+        <span>Scans check public databases with the number alone — never your list.</span></div>
+      <div class="promise"><b>Your data walks out with you</b>
+        <span>Plain CSV in, plain CSV out. The inventory is yours.</span></div>
+    </div>
+    <p style="margin:34px 0 0"><a href="privacy.html">Read the privacy policy →</a></p>
+  </div>
+</section>
+
+<section class="deal" id="deal">
+  <div class="container">
+    <h2>The deal</h2>
+    <p>Your first 50 items are free. One purchase takes the cap off for the
+    whole household — Family Sharing included.</p>
+    <div class="price">$2.99 <small>once. No subscription, ever.</small></div>
+    <div class="chips">
+      <span class="chip hot">Data Not Linked to You</span>
+      <span class="chip">Food &amp; Drink</span>
+      <span class="chip">Family Sharing</span>
+    </div>
+  </div>
+</section>
+
+<section class="faq container" id="support">
+  <h2>Questions</h2>
+  <details>
+    <summary>Does scanning a barcode send anything anywhere?</summary>
+    <p>Only the barcode number, to the Open Food Facts public databases, to
+    suggest a name and size — never your list, never anything about you.</p>
+  </details>
+  <details>
+    <summary>Can I get my data out?</summary>
+    <p>Yes — Shelfinch imports and exports plain CSV. Your inventory is yours,
+    readable by any spreadsheet.</p>
+  </details>
+  <details>
+    <summary>When does it launch?</summary>
+    <p>Soon — Shelfinch is in its final stretch before the App Store. This page
+    gets the download button the day it's live.</p>
+  </details>
+  <details>
+    <summary>Something's off, or you have an idea?</summary>
+    <p>Write to <a href="mailto:support@shelfinch.app">support@shelfinch.app</a>
+    and a human — the one who makes Shelfinch — will get back to you.</p>
+  </details>
+</section>
+
+<section class="cta">
+  <h2>Settle the shelves.</h2>
+  <p>Coming to iPhone — free for your first 50 items, no account, ever.</p>
+  <span class="btn">Coming to iPhone</span>
+</section>
+
+<footer>
+  <div class="container foot">
+    <span>© 2026 Shelfinch LLC</span>
+    <span class="spacer"></span>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="mailto:support@shelfinch.app">support@shelfinch.app</a>
+  </div>
+</footer>
+
 </body>
 </html>
