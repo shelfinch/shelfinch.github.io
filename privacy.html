@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shelfinch Privacy</title>
+<meta name="description" content="Shelfinch privacy policy: no accounts, no analytics, no servers. Your shelves live on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --surface-page:#FFFBF4; --surface-card:#FFFFFF; --surface-tint:#F4E9D8;
+  --ink:#3A2A1E; --ink-muted:#6B5A4C; --ink-faint:#9A8A7A;
+  --accent:#B3471F; --line:#EADCC6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#2B2118;
+    --ink:#F2E7D8; --ink-muted:#C9B8A5; --ink-faint:#8F7F6E;
+    --accent:#E9915F; --line:#3E3225;
+  }
+}
+:root[data-theme="dark"]{
+  --surface-page:#201812; --surface-card:#2B2118; --surface-tint:#2B2118;
+  --ink:#F2E7D8; --ink-muted:#C9B8A5; --ink-faint:#8F7F6E;
+  --accent:#E9915F; --line:#3E3225;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--ink);
+  font:16px/1.65 'DM Sans',system-ui,sans-serif}
+.wrap{max-width:640px;margin:0 auto;padding:48px 16px 64px}
+h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.25}
+h1{font-size:30px;margin:0 0 4px}
+h2{font-size:19px;margin:28px 0 8px}
+p,li{margin:0 0 12px;color:var(--ink-muted)}
+b{color:var(--ink)}
+a{color:var(--accent);font-weight:700;text-decoration:none}
+a:hover{text-decoration:underline}
+.date{font-size:13px;color:var(--ink-faint)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Shelfinch Privacy Policy</h1>
+  <p class="date">Effective October 2026</p>
+
+  <p><b>The short version: Shelfinch collects nothing about you.</b> No
+  accounts, no analytics, no advertising, no tracking, no third-party SDKs, and
+  no servers of ours for your data to reach.</p>
+
+  <h2>Your inventory stays on your devices</h2>
+  <p>Everything you put into Shelfinch — items, quantities, prices, dates —
+  is stored on your device. If you enable iCloud sync, Apple's private
+  CloudKit moves that data between your own devices under your Apple
+  account; we cannot read it and have no access to it.</p>
+
+  <h2>Barcode scanning</h2>
+  <p>When you scan a barcode, Shelfinch sends <b>only the barcode number</b> to
+  the public, non-profit <a href="https://openfoodfacts.org">Open Food Facts</a>
+  database to suggest a product name. Nothing about you, your device, or your
+  list is included, and nothing is stored there by us.</p>
+
+  <h2>Notifications</h2>
+  <p>Restock reminders are local notifications, generated and scheduled on your
+  device. They involve no network activity.</p>
+
+  <h2>Purchases</h2>
+  <p>The one-time unlock is processed entirely by Apple through the App Store.
+  We never see your payment details.</p>
+
+  <h2>Links to Amazon</h2>
+  <p>"Buy on Amazon" buttons open Amazon in your browser or Amazon app. These
+  links may include an affiliate tag, which tells Amazon the visit came from
+  Shelfinch and may earn us a small commission at no cost to you. What happens
+  on Amazon is governed by Amazon's own privacy policy.</p>
+
+  <h2>What we would have to change</h2>
+  <p>If a future feature ever needs to handle any personal data, this policy
+  will say so plainly before that feature ships, and the app will ask first.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <a href="mailto:support@shelfinch.com">support@shelfinch.com</a></p>
+
+  <footer><a href="index.html">Shelfinch support</a> · Storage guidance from the
+  USDA FoodKeeper dataset (public domain)</footer>
+</div>
+</body>
+</html>
