@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shelfinch Support</title>
-<meta name="description" content="Support for Shelfinch — the calm home pantry and supplies app. Stocked up. Calmed down.">
+<title>Shelfinch — Pantry &amp; Supplies</title>
+<meta name="description" content="Shelfinch keeps track of what's in the house and speaks up when something runs low. Nothing stored but your supplies — no account, no ads. Stocked up, settled down.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -32,10 +32,15 @@ body{margin:0;background:var(--surface-page);color:var(--ink);
 h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.2}
 h1{font-size:34px;margin:18px 0 6px}
 h2{font-size:21px;margin:34px 0 10px}
-.tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--accent);margin:0 0 4px}
+.tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:19px;color:var(--accent);margin:0 0 14px}
 p{margin:0 0 14px;color:var(--ink-muted)}
+.pill{display:inline-block;background:var(--accent);color:#FFFBF4;font-weight:700;font-size:14px;
+  padding:8px 20px;border-radius:999px;margin:2px 0 6px}
 .card{background:var(--surface-card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:0 0 14px}
 .card b{color:var(--ink)}
+ul.does{list-style:none;padding:0;margin:0 0 14px}
+ul.does li{padding:7px 0 7px 26px;position:relative;color:var(--ink-muted)}
+ul.does li::before{content:"";position:absolute;left:4px;top:15px;width:9px;height:9px;border-radius:3px;background:var(--terracotta)}
 a{color:var(--accent);font-weight:700;text-decoration:none}
 a:hover{text-decoration:underline}
 .mark{display:block}
@@ -57,10 +62,35 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-si
     <circle cx="73.5" cy="37.5" r="1.5" fill="var(--surface-page)"></circle>
   </svg>
   <h1>Shelfinch</h1>
-  <p class="tagline">Stocked up. Calmed down.</p>
-  <p>Shelfinch keeps quiet watch over the things your home runs on — the pantry,
-  the paper goods, the batteries in the drawer — and mentions it gently when
-  something's running low.</p>
+  <p class="tagline">Stocked up, settled down.</p>
+  <p>Shelfinch keeps track of what's in the house — the pantry, the paper goods,
+  the batteries in the junk drawer — so you're not standing in the store wondering
+  if you already have tomato paste.</p>
+  <p>Scan a barcode and the name and size fill in. Mark things off as you use them
+  up, and whatever runs low goes on the pick-up list by itself. Share the list with
+  one household code — whoever's at the store checks things off, and the shelves
+  update when the bags get put away.</p>
+  <span class="pill">Coming to iPhone</span>
+
+  <h2>What it does</h2>
+  <ul class="does">
+    <li>Scan barcodes — names and sizes fill in</li>
+    <li>A pick-up list that builds itself</li>
+    <li>One reminder at 9 the next morning when something new runs low</li>
+    <li>One code shares the list with the whole household</li>
+    <li>Typical U.S. prices for staples, if you want them — off until you turn them on</li>
+    <li>Photos, storage notes, and categories that sort themselves</li>
+  </ul>
+
+  <h2>Nothing stored but supplies</h2>
+  <p>Here's what makes Shelfinch different: it stores nothing but your supplies.
+  No account, no email, no sign-up. Your shelves live on your phone and in your
+  own iCloud, and sharing runs on a code — never emails or phone numbers. No ads.
+  No tracking. Details in the <a href="privacy.html">privacy policy</a>.</p>
+
+  <h2>The deal</h2>
+  <p>Your first 50 items are free. One purchase takes the cap off for the whole
+  household — Family Sharing included, no subscription, ever.</p>
 
   <h2>Support</h2>
   <div class="card">
@@ -70,14 +100,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-si
   </div>
 
   <h2>Common questions</h2>
-  <div class="card"><p><b>Where is my data?</b> On your device. Shelfinch has no
-  accounts and no servers — your shelves never leave your phone, except through
-  Apple's private iCloud sync if you turn that on. Details in the
-  <a href="privacy.html">privacy policy</a>.</p></div>
-  <div class="card"><p><b>What does the unlock cost, and is it a subscription?</b>
-  One purchase, one time. Your first 50 items are free forever; the unlock
-  removes the cap. No subscription, ever.</p></div>
-  <div class="card"><p><b>Barcode scanning sent something?</b> Only the barcode
+  <div class="card"><p><b>Does scanning a barcode send anything?</b> Only the barcode
   number goes to the Open Food Facts public database to suggest a name — never
   your list, never anything about you.</p></div>
   <div class="card"><p><b>Can I get my data out?</b> Yes — Shelfinch imports and
