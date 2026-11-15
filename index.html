@@ -124,15 +124,17 @@ nav{position:sticky;top:0;z-index:10;background:var(--surface-page);
 .deal{padding:96px 0;text-align:center}
 .deal h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
 .deal p{max-width:34em;margin:0 auto 10px}
-.price{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:56px;margin:18px 0 2px}
-.price small{font-size:18px;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--ink-muted)}
+.price{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:56px;line-height:1.1;
+  margin:18px 0 2px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;
+  column-gap:14px;row-gap:4px}
+.price small{font-size:18px;line-height:1.4;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--ink-muted)}
 .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:22px 0 0}
 .chip{font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;
   background:var(--surface-card);border:1px solid var(--line);color:var(--ink-muted)}
 .chip.hot{background:var(--chip-bg);border-color:transparent;color:var(--accent)}
 
 /* FAQ + support */
-.faq{padding:0 0 72px}
+.faq{padding:0 20px 72px}
 .faq h2{font-size:clamp(28px,3.4vw,36px);margin-bottom:22px}
 details{background:var(--surface-card);border:1px solid var(--line);
   border-radius:16px;padding:4px 20px;margin:0 0 10px}
